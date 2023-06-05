@@ -22,12 +22,37 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/bootstrap-3.3.7/bootstrap-3.3.7-dist/css/bootstrap-theme.css",
+              "src/bootstrap-3.3.7/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"
+
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "src/styles.css",
+              "src/style/css/main.css",
+              "src/style/js/plugins/bootsnav_files/skins/color.css",
+              "src/style/js/plugins/bootsnav_files/css/animate.css",
+              "src/style/js/plugins/bootsnav_files/css/bootsnav.css",
+              "src/style/js/plugins/bootsnav_files/css/overwrite.css",
+             "src/style/js/plugins/owl-carousel/owl.carousel.css",
+             "src/style/js/plugins/owl-carousel/owl.theme.css",
+            "src/style/js/plugins/owl-carousel/owl.transitions.css",
+            "src/style/js/plugins/Magnific-Popup-master/Magnific-Popup-master/dist/magnific-popup.css",
+            "src/style/bootstrap-3.3.7/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+
+
+
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/style/bootstrap-3.3.7/bootstrap-3.3.7-dist/js/bootstrap.min.js",
+              "src/style/js/plugins/owl-carousel/owl.carousel.min.js",
+              "src/style/js/plugins/bootsnav_files/js/bootsnav.js",
+              "src/style/js/plugins/typed.js-master/typed.js-master/dist/typed.min.js",
+              "src/style/js/plugins/Magnific-Popup-master/Magnific-Popup-master/dist/jquery.magnific-popup.js",
+              "src/style/js/main.js"
+            ]
           },
           "configurations": {
             "production": {

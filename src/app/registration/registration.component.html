@@ -1,0 +1,239 @@
+<body>
+
+
+    <!--//** Navigation**//-->
+
+    <nav class="navbar navbar-default navbar-fixed white no-background bootsnav navbar-scrollspy" data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+
+
+        <div class="container">
+
+            <!-- Start Header Navigation -->
+
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+
+                    <i class="fa fa-bars"></i>
+
+                </button>
+
+                <a class="navbar-brand" href="#brand">
+
+                    <h3 class="logo" alt="logo" style="color: #44c5ee;">HR Managment System</h3>
+
+                </a>
+
+            </div>
+
+            <!-- End Header Navigation -->
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="active scroll"><a href="#home">Home</a></li>
+                  <li class="button-holder">
+                    <button type="button" class="btn btn-blue navbar-btn" data-toggle="modal" data-target="#SignIn">Sign in</button>
+                  </li>
+                </ul>
+              </div>
+            <!-- /.navbar-collapse -->
+
+        </div>
+
+    </nav> 
+
+
+
+    <!--//** Banner**//-->
+
+    <section id="home">
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- Introduction -->
+
+                <div class="col-md-6 caption">
+
+                    <h1 style="color: #44c5ee;">Welcome To HR Managment System</h1>
+
+                </div>
+
+                <!-- Sign Up -->
+
+                <div class="col-md-5 col-md-offset-1">
+                    <form class="signup-form" [formGroup]="employeeForm" (ngSubmit)="registerEmployee()" action="http://127.0.0.1:8000/employee/" method="POST">
+                        <h2 class="text-center">Registration for Employee</h2>
+                        <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert">
+                            Registration successful!
+                          </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Full Name" required="required" formControlName="name" id="name" autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Employee ID" required="required" formControlName="employee_id" id="employee_id" autocomplete="employee-id">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" style="height: 39px;" formControlName="gender" required id="gender" autocomplete="gender">
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Date of Birth (dd/mm/yyyy)" required="required" formControlName="dob" id="dob" autocomplete="bday">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Designation" required="required" formControlName="designation" id="designation" autocomplete="designation">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Department" required="required" formControlName="department" id="department" autocomplete="department">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Appointment Date (dd/mm/yyyy)" required="required" formControlName="appointment_date" id="appointment_date" autocomplete="off">
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-blue btn-block">Register</button>
+                        </div>
+                    </form>
+                    
+                      
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--======================================== 
+
+           About Us
+
+    ========================================-->
+
+
+
+    <section id="about" class="section-padding">
+
+        <div class="container">
+
+            <h2>About Project</h2>
+
+            <p>About My Project</p>
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">favorite</i>
+
+                        <h4>Frontend</h4>
+
+                        <p> For the frontend, I have utilized HTML and CSS to enhance the user interface, creating a visually appealing and professional look for the home page. The design incorporates a corporate color scheme to maintain a cohesive branding experience.
+                            On the home page, users are provided with the option to register by filling out a registration form. The form includes fields such as Name, Employee ID, Gender  DOB, Designation,
+                            Department and Appointment Date
+                           
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">flash_on</i>
+
+                        <h4>Backend</h4>
+
+                        <p>The backend project, on the other hand, handles the logic and functionality of the application. It includes server-side code written in Python using Django, a popular web framework. The backend project manages tasks like data storage,logic, authentication, and authorization.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">settings</i>
+
+                        <h4>API</h4>
+
+                        <p>With the API in place, the frontend can make HTTP requests, such POST to interact with the backend. For example, the frontend can send a post request to store data from the backend, or a POST request to send new data for storage.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="container">
+    
+            <div class="row">
+    
+                <div class="footer-caption">
+    
+    
+                    <h5 class="pull-left">Made by Nima Tenzin Thinley</h5>
+    
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    
+    </footer>
+    
+    <div class="modal fade" id="SignIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title text-center" id="myModalLabel">Sign In</h4>
+            </div>
+            <div class="modal-body">
+              <!-- Sign In form -->
+              <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Username" formControlName="username" required>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+                </div>
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-blue btn-block">Log In</button>
+                </div>
+              </form>
+              <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+            </div>
+            <div class="modal-footer text-center">
+              <a href="#">Forgot your password?</a>
+              <a href="#">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    
+</body>
