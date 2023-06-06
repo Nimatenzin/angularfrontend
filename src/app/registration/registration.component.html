@@ -34,13 +34,16 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
 
             <div class="collapse navbar-collapse" id="navbar-menu">
-                <ul class="nav navbar-nav navbar-right">
-                  <li class="active scroll"><a href="#home">Home</a></li>
-                  <li class="button-holder">
-                    <button type="button" class="btn btn-blue navbar-btn" data-toggle="modal" data-target="#SignIn">Sign in</button>
-                  </li>
-                </ul>
-              </div>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="active scroll"><a href="#home">Home</a></li>
+    <li class="button-holder">
+      <button type="button" class="btn btn-blue navbar-btn" (click)="redirectToAdmin()">Sign up</button>
+
+
+    </li>
+  </ul>
+</div>
+
             <!-- /.navbar-collapse -->
 
         </div>
@@ -61,7 +64,7 @@
 
                 <div class="col-md-6 caption">
 
-                    <h1 style="color: #44c5ee;">Welcome To HR Managment System</h1>
+                    <h1>Welcome To HR Managment System</h1>
 
                 </div>
 
@@ -71,37 +74,59 @@
                     <form class="signup-form" [formGroup]="employeeForm" (ngSubmit)="registerEmployee()" action="http://127.0.0.1:8000/employee/" method="POST">
                         <h2 class="text-center">Registration for Employee</h2>
                         <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert">
-                            Registration successful!
+                          Registration successful!
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Full Name" formControlName="name" id="name" autocomplete="name">
+                          <div *ngIf="employeeForm.controls['name'].invalid && (employeeForm.controls['name'].dirty || employeeForm.controls['name'].touched)" class="alert alert-danger">
+                            Name is required
                           </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Full Name" required="required" formControlName="name" id="name" autocomplete="name">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Employee ID" required="required" formControlName="employee_id" id="employee_id" autocomplete="employee-id">
+                          <input type="text" class="form-control" placeholder="Employee ID" formControlName="employee_id" id="employee_id" autocomplete="employee-id">
+                          <div *ngIf="employeeForm.controls['employee_id'].invalid && (employeeForm.controls['employee_id'].dirty || employeeForm.controls['employee_id'].touched)" class="alert alert-danger">
+                            Employee ID is required
+                          </div>
                         </div>
                         <div class="form-group">
-                            <select class="form-control" style="height: 39px;" formControlName="gender" required id="gender" autocomplete="gender">
-                                <option value="">Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
+                          <select class="form-control" style="height: 39px;" formControlName="gender" id="gender" autocomplete="gender">
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                          </select>
+                          <div *ngIf="employeeForm.controls['gender'].invalid && (employeeForm.controls['gender'].dirty || employeeForm.controls['gender'].touched)" class="alert alert-danger">
+                            Gender is required
+                          </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Date of Birth (dd/mm/yyyy)" required="required" formControlName="dob" id="dob" autocomplete="bday">
+                          <input type="text" class="form-control" placeholder="Date of Birth (dd/mm/yyyy)" formControlName="dob" id="dob" autocomplete="bday">
+                          <div *ngIf="employeeForm.controls['dob'].invalid && (employeeForm.controls['dob'].dirty || employeeForm.controls['dob'].touched)" class="alert alert-danger">
+                            Date of Birth is required
+                          </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Designation" required="required" formControlName="designation" id="designation" autocomplete="designation">
+                          <input type="text" class="form-control" placeholder="Designation" formControlName="designation" id="designation" autocomplete="designation">
+                          <div *ngIf="employeeForm.controls['designation'].invalid && (employeeForm.controls['designation'].dirty || employeeForm.controls['designation'].touched)" class="alert alert-danger">
+                            Designation is required
+                          </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Department" required="required" formControlName="department" id="department" autocomplete="department">
+                          <input type="text" class="form-control" placeholder="Department" formControlName="department" id="department" autocomplete="department">
+                          <div *ngIf="employeeForm.controls['department'].invalid && (employeeForm.controls['department'].dirty || employeeForm.controls['department'].touched)" class="alert alert-danger">
+                            Department is required
+                          </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Appointment Date (dd/mm/yyyy)" required="required" formControlName="appointment_date" id="appointment_date" autocomplete="off">
+                          <input type="text" class="form-control" placeholder="Appointment Date (dd/mm/yyyy)" formControlName="appointment_date" id="appointment_date" autocomplete="off">
+                          <div *ngIf="employeeForm.controls['appointment_date'].invalid && (employeeForm.controls['appointment_date'].dirty || employeeForm.controls['appointment_date'].touched)" class="alert alert-danger">
+                            Appointment Date is required
+                          </div>
                         </div>
                         <div class="form-group text-center">
-                            <button type="submit" class="btn btn-blue btn-block">Register</button>
+                          <button type="submit" class="btn btn-blue btn-block">Register</button>
                         </div>
-                    </form>
+                      </form>
+                      
                     
                       
 
@@ -203,37 +228,7 @@
     
     </footer>
     
-    <div class="modal fade" id="SignIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h4 class="modal-title text-center" id="myModalLabel">Sign In</h4>
-            </div>
-            <div class="modal-body">
-              <!-- Sign In form -->
-              <form [formGroup]="loginForm" (ngSubmit)="login()">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" formControlName="username" required>
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
-                </div>
-                <div class="form-group text-center">
-                  <button type="submit" class="btn btn-blue btn-block">Log In</button>
-                </div>
-              </form>
-              <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
-            </div>
-            <div class="modal-footer text-center">
-              <a href="#">Forgot your password?</a>
-              <a href="#">Sign up</a>
-            </div>
-          </div>
-        </div>
-      </div>
+  
       
     
 </body>

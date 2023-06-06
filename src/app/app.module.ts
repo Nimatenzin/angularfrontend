@@ -19,7 +19,6 @@ import { RegistrationComponent } from './registration/registration.component';
     AppRoutingModule,
     HttpClientModule,
     MatSnackBarModule
-    
   ],
   providers: [MatSnackBar], // Add MatSnackBar to providers
   bootstrap: [AppComponent]
